@@ -36,11 +36,11 @@ class TestMatrixMethods(unittest.TestCase):
         pg = PassphraseGenerator()
 
         phrase = pg.generate_passphrase(
-                phrase_length=2, key_length=5, rstart=1, rstop=6)
+                phrase_len=2, key_len=5, rstart=1, rstop=6)
         self.assertEqual(len(phrase.split(' ')), 2, 'Phrase incorrect length!')
 
         phrase = pg.generate_passphrase(
-                phrase_length=5, key_length=5, rstart=1, rstop=6)
+                phrase_len=5, key_len=5, rstart=1, rstop=6)
         self.assertEqual(len(phrase.split(' ')), 5, 'Phrase incorrect length!')
 
 if __name__ == '__main__':

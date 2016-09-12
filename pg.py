@@ -32,13 +32,13 @@ class PassphraseGenerator:
         return self.words.get(target_number, '')
 
 
-    def generate_passphrase(self, phrase_length=5, key_length=5, rstart=1, rstop=6):
+    def generate_passphrase(self, phrase_len=5, key_len=5, rstart=1, rstop=6):
         phrase = []
-        for i in range(0, phrase_length):
+        for i in range(0, phrase_len):
             word = ''
             while word == '':
                 rand_number = self.generate_random_word_key(
-                    key_length, rstart, rstop)
+                    key_len, rstart, rstop)
                 word = self.get_word_by_number(rand_number)
                 print 'Missed key %s' %rand_number
             phrase.append(word)
@@ -49,5 +49,5 @@ class PassphraseGenerator:
 if __name__ == '__main__':
     pg = PassphraseGenerator()
     phrase = pg.generate_passphrase(
-        phrase_length=5, key_length=5, rstart=1, rstop=6)
+        phrase_len=5, key_len=5, rstart=1, rstop=6)
     print phrase
