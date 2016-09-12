@@ -7,8 +7,8 @@ class PassphraseGenerator:
 
 
     def __init__(self, file_urn='word_list.txt'):
-        self.words = self.read_words(file_urn)
         self.logger = self.setupLogger()
+        self.words = self.read_words(file_urn)
 
 
     def setupLogger(self):
