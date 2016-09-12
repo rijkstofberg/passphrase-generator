@@ -1,11 +1,24 @@
 #!/bin/python
 
 import random
+import logging
 
 class PassphraseGenerator:
 
+
     def __init__(self, file_urn='word_list.txt'):
         self.words = self.read_words(file_urn)
+        self.logger = self.setupLogger()
+
+
+    def setupLogger(self):
+        logger = logging.getLogger('PassphraseGenerator')
+        handler = logging.StreamHandler()
+        formatter = logging.Formatter(
+                '%(asctime)s %(name)-12s %(levelname)-8s %(message)s')
+        handler.setFormatter(formatter)
+        logger.addHandler(handler)
+        return logger
 
 
     def read_words(self, urn):
@@ -40,7 +53,7 @@ class PassphraseGenerator:
                 rand_number = self.generate_random_word_key(
                     key_len, rstart, rstop)
                 word = self.get_word_by_number(rand_number)
-                print 'Missed key %s' %rand_number
+                self.logger.debug('Missed key %s' %rand_number)
             phrase.append(word)
 
         return ' '.join(phrase).strip(' ')

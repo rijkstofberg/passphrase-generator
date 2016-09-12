@@ -34,6 +34,7 @@ class TestMatrixMethods(unittest.TestCase):
 
     def test_generate_passphrase(self):
         pg = PassphraseGenerator()
+        pg.logger.setLevel('DEBUG')
 
         phrase = pg.generate_passphrase(
                 phrase_len=2, key_len=5, rstart=1, rstop=6)
